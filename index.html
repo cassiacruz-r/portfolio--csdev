@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cássia Cruz — Sites para pequenos negócios</title>
-<meta name="description" content="Cássia Cruz, desenvolvedora em Jequié, BA. Crio sites rápidos, bonitos e sob medida para autônomos e pequenos negócios.">
+<title>Cássia Cruz — Presença digital para empresas que querem ser levadas a sério</title>
+<meta name="description" content="Desenvolvimento de sites estratégicos para empresas que querem transmitir confiança antes mesmo do primeiro contato.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="glow glow-a"></div>
+<div class="glow glow-b"></div>
+
 <!-- ===== NAV ===== -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#topo" class="logo">Cássia<span class="dot">.</span>Cruz</a>
+    <a href="#topo" class="logo">Cássia Cruz</a>
     <nav class="nav-links" id="navLinks">
-      <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contato" class="btn btn-primary btn-sm">Falar no WhatsApp</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato" class="btn btn-primary btn-sm">Solicitar orçamento</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -29,89 +32,118 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="topo">
-  <div class="wrap hero-inner">
-    <p class="eyebrow">JEQUIÉ, BAHIA_</p>
-    <h1>Sites que fazem <span class="accent">pequenos negócios</span> parecerem grandes.</h1>
-    <p class="hero-text">Eu sou a Cássia. Desenvolvo sites institucionais e catálogos digitais sob medida — rápidos, bonitos no celular e prontos pra transformar visita em cliente no WhatsApp.</p>
-    <div class="hero-actions">
-      <a href="#contato" class="btn btn-primary btn-lg">Falar no WhatsApp</a>
-      <a href="#projetos" class="btn btn-ghost btn-lg">Ver projetos</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy" data-animate>
+      <h1>O próximo cliente pode estar pesquisando pela sua empresa neste exato momento. O que ele encontra?</h1>
+      <p class="hero-text">Se a resposta for um site desatualizado, uma página feita às pressas ou nenhuma presença online, ele provavelmente já seguiu para o concorrente sem avisar. Eu desenvolvo sites que fazem esse cliente decidir ficar.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-primary btn-lg">Solicitar orçamento</a>
+        <a href="#projetos" class="btn btn-ghost btn-lg">Ver projetos</a>
+      </div>
     </div>
-    <div class="pill-row">
-      <span>Sites institucionais</span>
-      <span>Catálogos digitais</span>
-      <span>Landing pages</span>
-      <span>Integração com WhatsApp</span>
-      <span>Deploy rápido</span>
+
+    <div class="hero-visual" data-animate>
+      <div class="glass-panel">
+        <div class="glass-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="glass-preview">
+          <span class="glass-brand">TURBO DETAILS</span>
+          <span class="glass-sub">turbo-details.vercel.app</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SOBRE ===== -->
-<section class="sobre" id="sobre">
-  <div class="wrap sobre-grid">
-    <div class="sobre-visual">
-      <div class="sobre-card">
-        <span class="sobre-card-label">DESDE</span>
-        <span class="sobre-card-big">2 sites</span>
-        <span class="sobre-card-sub">no ar, atendendo clientes reais</span>
+<!-- ===== PROBLEMA ===== -->
+<section class="problema" id="problema" data-animate>
+  <div class="wrap narrow">
+    <p class="eyebrow">O problema</p>
+    <h2>A primeira impressão já foi formada antes do primeiro contato</h2>
+    <p class="lead">Antes de ligar, antes de visitar, antes de perguntar o preço, seu cliente já formou uma opinião sobre a sua empresa. Ele fez isso sozinho, em segundos, olhando para o que encontrou online. Se essa impressão não transmitiu confiança, ele simplesmente não voltou para contar o motivo. Foi para o concorrente ao lado.</p>
+  </div>
+</section>
+
+<!-- ===== POR QUE IMPORTA ===== -->
+<section class="importancia" id="importancia" data-animate>
+  <div class="wrap">
+    <p class="eyebrow">Por que isso importa</p>
+    <h2>Presença digital não é sobre estar online. É sobre como sua empresa é percebida antes mesmo de ser conhecida.</h2>
+    <p class="lead">Um site bem construído não vende sozinho, mas remove todas as dúvidas que impedem alguém de confiar em você. Ele organiza a forma como sua empresa se apresenta, destaca o que faz de melhor e cria a base para que cada novo contato comece de um patamar mais alto.</p>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Confiança</h3>
+        <p>Um site profissional comunica, antes de qualquer palavra, que sua empresa leva o próprio negócio a sério.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg>
+        </span>
+        <h3>Clareza</h3>
+        <p>Quando a informação certa está no lugar certo, o cliente entende rápido o que você oferece e por que escolher você.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6M12 16v6M4.2 4.2l4.2 4.2M15.6 15.6l4.2 4.2M2 12h6M16 12h6M4.2 19.8l4.2-4.2M15.6 8.4l4.2-4.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Diferenciação</h3>
+        <p>Em meio a concorrentes parecidos, a forma como você se apresenta online passa a ser o motivo da escolha.</p>
       </div>
     </div>
-    <div class="sobre-content">
-      <p class="eyebrow">SOBRE_</p>
-      <h2>Desenvolvo o site, você foca no seu negócio.</h2>
-      <p>Comecei criando o site da minha própria empresa de estética automotiva, a <strong>Turbo Details</strong>. Fui aprendendo no processo — testando, ajustando, refazendo até o resultado parecer coisa de agência. Hoje aplico esse mesmo cuidado no site de outras pessoas, como o catálogo da <strong>Clio Personalizados</strong>.</p>
-      <p>Trabalho sozinha, então cada projeto recebe atenção de verdade: sem site engessado, sem modelo genérico. Você me conta o que precisa, eu construo, e a gente ajusta até ficar do seu jeito.</p>
-    </div>
+  </div>
+</section>
+
+<!-- ===== MÉTODO ===== -->
+<section class="metodo" id="metodo" data-animate>
+  <div class="wrap narrow">
+    <p class="eyebrow">Como posso ajudar</p>
+    <h2>Estratégia, design e tecnologia trabalhando pela mesma coisa: a confiança do seu cliente</h2>
+    <p class="lead">Antes de qualquer linha de código, procuro entender como o seu negócio funciona, o que te diferencia e o que faz alguém escolher você em vez do concorrente. Só então a estrutura, o visual e o conteúdo do site são desenhados em volta dessas respostas. O resultado é um site que representa sua empresa da forma como ela merece ser vista, não um modelo genérico adaptado às pressas.</p>
   </div>
 </section>
 
 <!-- ===== PROJETOS ===== -->
-<section class="projetos" id="projetos">
+<section class="projetos" id="projetos" data-animate>
   <div class="wrap">
-    <p class="eyebrow">PROJETOS_</p>
-    <h2>O que eu já construí</h2>
-    <p class="section-lead">Dois sites no ar, dois negócios reais atendendo clientes por eles.</p>
+    <p class="eyebrow">Projetos</p>
+    <h2>Empresas reais, com sites que representam o que elas são</h2>
 
-    <div class="projects-grid">
+    <div class="case-list">
 
-      <article class="project-card">
-        <div class="project-preview turbo-preview">
-          <span class="preview-brand">TURBO DETAILS</span>
-          <span class="preview-badge">● aberto agora</span>
+      <article class="case-row">
+        <div class="case-visual case-turbo">
+          <div class="glass-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="case-preview">
+            <span class="case-brand">TURBO DETAILS</span>
+            <span class="case-sub">● aberto agora</span>
+          </div>
         </div>
-        <div class="project-info">
+        <div class="case-info">
+          <span class="case-tag">Estética automotiva</span>
           <h3>Turbo Details</h3>
-          <p>Estética automotiva — meu próprio negócio. Status de aberto/fechado em tempo real, antes/depois de clientes reais e agendamento integrado.</p>
-          <div class="project-tags">
-            <span>Landing page</span>
-            <span>Agendamento</span>
-            <span>Status ao vivo</span>
-          </div>
-          <div class="project-links">
-            <a href="https://turbo-details.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Ver site ↗</a>
-            <a href="https://github.com/cassiacruz-r/turbo-details-" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Repositório ↗</a>
-          </div>
+          <p>Uma landing page que acompanha o funcionamento real do negócio, com status de aberto e fechado em tempo real, resultados de trabalhos anteriores e agendamento integrado. O visitante entende o padrão do serviço antes mesmo de entrar em contato.</p>
+          <a href="https://turbo-details.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost">Ver site ↗</a>
         </div>
       </article>
 
-      <article class="project-card">
-        <div class="project-preview clio-preview">
-          <span class="preview-brand">Clio Personalizados</span>
-          <span class="preview-badge">catálogo digital</span>
+      <article class="case-row reverse">
+        <div class="case-visual case-clio">
+          <div class="glass-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="case-preview">
+            <span class="case-brand">Clio Personalizados</span>
+            <span class="case-sub">catálogo digital</span>
+          </div>
         </div>
-        <div class="project-info">
+        <div class="case-info">
+          <span class="case-tag">Papelaria personalizada</span>
           <h3>Clio Personalizados</h3>
-          <p>Papelaria personalizada. Catálogo de produtos por categoria, depoimentos de clientes e caminho direto até a compra pelo WhatsApp.</p>
-          <div class="project-tags">
-            <span>Catálogo</span>
-            <span>Depoimentos</span>
-            <span>WhatsApp</span>
-          </div>
-          <div class="project-links">
-            <a href="https://site-teste-clio.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Ver site ↗</a>
-            <a href="https://github.com/cassiacruz-r/site-teste---clio" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Repositório ↗</a>
-          </div>
+          <p>Um catálogo organizado por categoria, com depoimentos reais de clientes e um caminho direto até a compra pelo WhatsApp. Menos fricção entre encontrar o produto e fechar o pedido.</p>
+          <a href="https://site-teste-clio.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost">Ver site ↗</a>
         </div>
       </article>
 
@@ -119,89 +151,90 @@
   </div>
 </section>
 
-<!-- ===== COMO FUNCIONA ===== -->
-<section class="processo">
+<!-- ===== PROCESSO ===== -->
+<section class="processo" id="processo" data-animate>
   <div class="wrap">
-    <p class="eyebrow">COMO FUNCIONA_</p>
+    <p class="eyebrow">Como funciona o processo</p>
     <h2>Do primeiro contato ao site no ar</h2>
 
     <ol class="steps">
       <li class="step">
         <span class="step-num">01</span>
-        <h3>Briefing</h3>
-        <p>Conversamos no WhatsApp sobre seu negócio, o que você vende e o que o site precisa fazer por você.</p>
+        <h3>Diagnóstico</h3>
+        <p>Entendo o seu negócio, seu público e o que o site precisa fazer por você antes de desenhar qualquer tela.</p>
       </li>
       <li class="step">
         <span class="step-num">02</span>
-        <h3>Design</h3>
-        <p>Defino cores, estilo e estrutura com a cara do seu negócio — nada de modelo pronto genérico.</p>
+        <h3>Direção</h3>
+        <p>Defino a identidade visual e a estrutura da página com a cara da sua empresa, não um modelo pronto.</p>
       </li>
       <li class="step">
         <span class="step-num">03</span>
-        <h3>Desenvolvimento</h3>
-        <p>Construo o site, testo no celular e no computador, e te mostro antes de publicar.</p>
+        <h3>Construção</h3>
+        <p>Desenvolvo o site com atenção a cada detalhe, testado em diferentes telas antes de qualquer entrega.</p>
       </li>
       <li class="step">
         <span class="step-num">04</span>
-        <h3>Entrega e ajustes</h3>
-        <p>Site publicado e no ar. Depois disso, sigo disponível para melhorias e novos pedidos.</p>
+        <h3>Lançamento</h3>
+        <p>O site vai ao ar, e sigo por perto para ajustes, dúvidas e evolução conforme sua empresa cresce.</p>
       </li>
     </ol>
   </div>
 </section>
 
-<!-- ===== SERVIÇOS ===== -->
-<section class="servicos" id="servicos">
-  <div class="wrap">
-    <p class="eyebrow">SERVIÇOS_</p>
-    <h2>O que eu posso fazer pelo seu negócio</h2>
+<!-- ===== SOBRE ===== -->
+<section class="sobre" id="sobre" data-animate>
+  <div class="wrap narrow">
+    <p class="eyebrow">Sobre</p>
+    <h2>Antes de programar, eu escuto</h2>
+    <p class="lead">Vim do marketing antes de vir da programação, e isso muda a forma como enxergo um site. Para mim, cada página é uma decisão de negócio antes de ser uma decisão técnica. Sei como é estar do outro lado do balcão: minha própria empresa de estética automotiva, a Turbo Details, também nasceu de um site que precisava transmitir confiança para quem nunca tinha ouvido falar dela. É esse mesmo cuidado que aplico em cada projeto que assino.</p>
+  </div>
+</section>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Site institucional</h3>
-        <p>Uma página de apresentação para seu negócio, com seus serviços, contato e identidade visual.</p>
-      </div>
-      <div class="service-card">
-        <h3>Catálogo digital</h3>
-        <p>Vitrine dos seus produtos organizada por categoria, com caminho direto para o WhatsApp.</p>
-      </div>
-      <div class="service-card">
-        <h3>Landing page</h3>
-        <p>Página única focada em converter — ideal para uma promoção, lançamento ou serviço específico.</p>
-      </div>
-      <div class="service-card">
-        <h3>Manutenção e melhorias</h3>
-        <p>Já tem site? Eu ajusto, atualizo conteúdo e adiciono funcionalidades novas quando precisar.</p>
-      </div>
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq" data-animate>
+  <div class="wrap narrow">
+    <p class="eyebrow">Dúvidas frequentes</p>
+    <h2>Antes de me chamar, você já deve estar pensando nisso</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Quanto custa um site?</summary>
+        <p>O investimento varia conforme o tipo de projeto e as funcionalidades necessárias. Me chame no WhatsApp e conversamos sobre o seu caso para te passar uma proposta justa.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto tempo leva para ficar pronto?</summary>
+        <p>Depende da complexidade, mas a maioria dos projetos fica pronta em poucas semanas. No diagnóstico inicial já te dou um prazo realista para o seu caso.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso já ter uma ideia pronta de como quero o site?</summary>
+        <p>Não. Parte do meu trabalho é justamente ajudar a organizar essa ideia. Trago direção mesmo quando o ponto de partida é apenas "preciso de um site".</p>
+      </details>
+      <details class="faq-item">
+        <summary>O site funciona bem no celular?</summary>
+        <p>Sim. Todo projeto é pensado primeiro para celular, já que é de onde vem a maior parte dos seus futuros clientes, e depois adaptado para computador.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Depois de pronto, dá para fazer alterações?</summary>
+        <p>Sim. Sigo disponível após a entrega para ajustes, atualizações de conteúdo e melhorias conforme sua empresa for crescendo.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTATO ===== -->
-<section class="contato" id="contato">
+<!-- ===== CTA FINAL ===== -->
+<section class="contato" id="contato" data-animate>
   <div class="wrap contato-inner">
-    <p class="eyebrow">CONTATO_</p>
-    <h2>Vamos tirar seu site do papel?</h2>
-    <p class="section-lead">Me chama no WhatsApp e conta um pouco sobre o seu negócio.</p>
-    <div class="contato-actions">
-      <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Chamar no WhatsApp</a>
-      <a href="https://github.com/cassiacruz-r" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.84 3.13 8.94 7.48 10.39.55.1.75-.24.75-.53 0-.26-.01-1.13-.02-2.05-3.04.66-3.68-1.3-3.68-1.3-.5-1.26-1.21-1.6-1.21-1.6-.99-.68.08-.66.08-.66 1.09.08 1.66 1.12 1.66 1.12.97 1.66 2.55 1.18 3.17.9.1-.7.38-1.18.69-1.45-2.43-.28-4.98-1.21-4.98-5.39 0-1.19.42-2.16 1.12-2.92-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3 1.12a10.4 10.4 0 0 1 5.46 0c2.08-1.41 3-1.12 3-1.12.6 1.52.22 2.64.11 2.92.7.76 1.12 1.73 1.12 2.92 0 4.19-2.56 5.11-5 5.38.39.34.74 1 .74 2.03 0 1.47-.01 2.65-.01 3.01 0 .29.2.64.76.53 4.35-1.45 7.48-5.55 7.48-10.39C23.02 5.24 18.27.5 12 .5Z"/></svg>
-        GitHub
-      </a>
-    </div>
-    <div class="trust-row">
-      <span>✓ Resposta rápida</span>
-      <span>✓ Orçamento sem compromisso</span>
-      <span>✓ Sites otimizados para celular</span>
-    </div>
+    <h2>Seu próximo cliente já está procurando. A pergunta é o que ele vai encontrar.</h2>
+    <p class="lead">Me chame no WhatsApp e conta um pouco sobre a sua empresa. Em poucos minutos já conseguimos entender se faz sentido trabalharmos juntas.</p>
+    <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Solicitar orçamento</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="wrap footer-inner">
     <span>Cássia Cruz © 2026</span>
-    <a href="https://github.com/cassiacruz-r" target="_blank" rel="noopener">github.com/cassiacruz-r</a>
+    <a href="https://github.com/cassiacruz-r" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
 
