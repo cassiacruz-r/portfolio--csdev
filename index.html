@@ -2,246 +2,880 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cássia Cruz — Presença digital para empresas que querem ser levadas a sério</title>
-<meta name="description" content="Desenvolvimento de sites estratégicos para empresas que querem transmitir confiança antes mesmo do primeiro contato.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cássia Cruz — Presença digital para empresas</title>
+<meta name="description" content="Desenvolvimento de sites e presença digital para empresas que querem transmitir confiança e profissionalismo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ============ TOKENS ============ */
+:root{
+  --bg: #0A0B10;
+  --bg-soft: #0D0F16;
+  --surface: #14161F;
+  --surface-2: #1A1D28;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --text: #F2F3F7;
+  --text-muted: #9498A6;
+  --text-faint: #676B7A;
+  --blue: #4C6FFF;
+  --violet: #8B7CFA;
+  --gold: #D9B36C;
+  --gradient-cool: linear-gradient(120deg, var(--blue), var(--violet));
+  --gradient-warm: linear-gradient(120deg, var(--gold), #F0D9A8);
+  --shadow-glow: 0 0 60px rgba(76,111,255,0.18);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --ff-mono: 'JetBrains Mono', monospace;
+  --container: 1180px;
+  --edge: 24px;
+}
+
+@media (min-width: 768px){ :root{ --edge: 48px; } }
+@media (min-width: 1100px){ :root{ --edge: 64px; } }
+
+*,*::before,*::after{ box-sizing: border-box; margin:0; padding:0; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 500px at 15% -5%, rgba(76,111,255,0.14), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(139,124,250,0.10), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(217,179,108,0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+img{ max-width: 100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+ul{ list-style:none; }
+button{ font-family: inherit; cursor: pointer; }
+
+.wrap{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--edge);
+  padding-right: var(--edge);
+  position: relative;
+  z-index: 1;
+}
+
+section{ position: relative; z-index: 1; }
+
+h1,h2,h3,h4{ font-family: var(--ff-display); font-weight: 600; letter-spacing: -0.01em; }
+
+.eyebrow{
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.eyebrow::before{
+  content:"";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gradient-cool);
+  box-shadow: 0 0 12px rgba(76,111,255,0.7);
+  flex-shrink: 0;
+}
+
+.grad-text{
+  background: var(--gradient-cool);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-pad{ padding: 88px 0; }
+@media (min-width: 768px){ .section-pad{ padding: 128px 0; } }
+
+.section-head{ max-width: 640px; margin-bottom: 48px; }
+.section-head h2{ font-size: clamp(1.7rem, 4.2vw, 2.5rem); line-height: 1.2; margin-bottom: 16px; }
+.section-head p{ color: var(--text-muted); font-size: 1.02rem; }
+
+/* ============ BUTTONS ============ */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.96rem;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color .25s ease;
+  white-space: nowrap;
+}
+.btn-primary{
+  background: var(--gradient-cool);
+  color: #ffffff;
+  box-shadow: 0 8px 30px rgba(76,111,255,0.35);
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 36px rgba(76,111,255,0.45); }
+.btn-ghost{
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover{ background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+.btn:focus-visible{ outline: 2px solid var(--blue); outline-offset: 3px; }
+
+/* ============ HEADER ============ */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10,11,16,0.72);
+  border-bottom: 1px solid var(--border);
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.logo{
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.logo span{ color: var(--blue); }
+.nav .btn{ padding: 10px 20px; font-size: 0.86rem; }
+
+/* ============ HERO ============ */
+.hero{ padding: 64px 0 80px; }
+@media (min-width: 1100px){ .hero{ padding: 96px 0 120px; } }
+
+.hero-grid{
+  display: grid;
+  gap: 40px;
+}
+@media (min-width: 1100px){
+  .hero-grid{ grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 60px; }
+}
+
+.hero h1{
+  font-size: clamp(2.1rem, 6.4vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+.hero-sub{
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+.hero-actions{ display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 8px; }
+
+.hero-visual{ position: relative; }
+
+/* search mock — signature element */
+.search-mock{
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), var(--shadow-glow);
+}
+.search-chrome{ display:flex; align-items:center; gap: 8px; margin-bottom: 16px; }
+.search-dot{ width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.14); }
+.search-bar{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 13px 18px;
+  font-family: var(--ff-mono);
+  font-size: 0.86rem;
+  color: var(--text);
+  min-height: 46px;
+}
+.search-bar svg{ flex-shrink: 0; opacity: 0.5; }
+.search-cursor{
+  display: inline-block;
+  width: 2px; height: 15px;
+  background: var(--blue);
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  vertical-align: middle;
+}
+@keyframes blink{ 50%{ opacity: 0; } }
+
+.search-result{
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+.search-result.show{ opacity: 1; transform: translateY(0); }
+.search-result strong{ color: var(--text); font-weight: 500; }
+
+.portrait-card{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.02);
+}
+.portrait-avatar{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--gradient-cool);
+  flex-shrink: 0;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--ff-display); font-weight: 700; font-size: 0.95rem; color:#fff;
+}
+.portrait-card .name{ font-size: 0.9rem; font-weight: 600; }
+.portrait-card .role{ font-size: 0.78rem; color: var(--text-faint); }
+
+/* ============ REVEAL ============ */
+.reveal{ opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible{ opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .search-cursor{ animation:none; }
+}
+
+/* ============ PROBLEMA ============ */
+.problema-box{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--surface), var(--bg-soft));
+  padding: 40px 28px;
+}
+@media (min-width: 768px){ .problema-box{ padding: 56px; } }
+.problema-box h2{ font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.25; max-width: 780px; margin-bottom: 20px; }
+.problema-box p{ color: var(--text-muted); max-width: 620px; font-size: 1.02rem; }
+
+/* ============ IMPORTANCIA ============ */
+.importancia{ display: grid; gap: 40px; }
+@media (min-width: 1000px){ .importancia{ grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; } }
+.importancia h2{ font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.25; }
+.importancia .lead{ font-size: 1.05rem; color: var(--text-muted); margin-top: 20px; }
+
+/* ============ SERVICOS ============ */
+.cards-grid{ display: grid; gap: 20px; grid-template-columns: 1fr; }
+@media (min-width: 700px){ .cards-grid{ grid-template-columns: 1fr 1fr; } }
+
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 30px 26px;
+  transition: border-color .3s ease, transform .3s ease, background .3s ease;
+}
+.card:hover{ border-color: var(--border-strong); transform: translateY(-4px); background: var(--surface-2); }
+.card .num{ font-family: var(--ff-mono); font-size: 0.78rem; color: var(--blue); margin-bottom: 16px; display:block; }
+.card h3{ font-size: 1.15rem; margin-bottom: 10px; }
+.card p{ color: var(--text-muted); font-size: 0.95rem; }
+
+/* ============ PROJETOS ============ */
+.project{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  margin-bottom: 26px;
+}
+.project-frame{
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  border-bottom: 1px solid var(--border);
+  display:flex; align-items:center; gap:8px;
+}
+.project-mock{
+  padding: 44px 28px;
+  background:
+    radial-gradient(ellipse 400px 200px at 20% 0%, rgba(76,111,255,0.10), transparent 70%),
+    var(--bg-soft);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.project-mock .tag{ font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
+.project-mock .title{ font-family: var(--ff-display); font-size: clamp(1.3rem,3.4vw,1.7rem); margin-bottom: 10px; }
+.project-mock .bar{ width: 130px; height: 9px; border-radius: 5px; background: var(--gradient-cool); opacity:0.85; margin-bottom: 8px;}
+.project-mock .bar.short{ width: 80px; opacity: 0.4; background: var(--text-faint); }
+.project-body{ padding: 26px 28px 30px; }
+.project-body h3{ font-size: 1.2rem; margin-bottom: 8px; }
+.project-body p{ color: var(--text-muted); font-size: 0.95rem; }
+.project-note{
+  font-size: 0.82rem; color: var(--text-faint); margin-top: 8px; margin-bottom: 40px; text-align:center;
+}
+
+/* ============ PROCESSO ============ */
+.timeline{ display: grid; gap: 0; grid-template-columns: 1fr; }
+@media (min-width: 900px){ .timeline{ grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+
+.step{
+  padding: 26px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+@media (min-width: 900px){
+  .step{ flex-direction: column; border-top: none; border-left: 1px solid var(--border); padding: 0 0 0 22px; }
+}
+.step .step-num{ font-family: var(--ff-mono); font-size: 0.85rem; color: var(--blue); flex-shrink:0; width: 32px; }
+.step h3{ font-size: 1.05rem; margin-bottom: 6px; }
+.step p{ color: var(--text-muted); font-size: 0.9rem; }
+
+/* ============ SOBRE ============ */
+.sobre{ display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px){ .sobre{ grid-template-columns: 0.8fr 1.2fr; gap: 64px; } }
+.sobre-portrait{
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--surface-2), var(--bg-soft));
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  display:flex; align-items:flex-end;
+}
+.sobre-portrait::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 50% 20%, rgba(76,111,255,0.16), transparent 60%);
+}
+.sobre-portrait .initials{
+  font-family: var(--ff-display); font-weight:700; font-size: 5rem; color: rgba(255,255,255,0.06);
+  position: absolute; top: 20px; left: 24px;
+}
+.sobre-portrait .cap{
+  position: relative; z-index:1; padding: 22px; font-family: var(--ff-mono); font-size: 0.78rem; color: var(--text-faint);
+}
+.sobre h2{ font-size: clamp(1.6rem,3.8vw,2.2rem); margin-bottom: 20px; line-height: 1.25; }
+.sobre p{ color: var(--text-muted); font-size: 1.02rem; margin-bottom: 16px; max-width: 560px; }
+
+/* ============ FAQ ============ */
+.faq-list{ border-top: 1px solid var(--border); }
+.faq-item{ border-bottom: 1px solid var(--border); }
+.faq-item summary{
+  list-style: none;
+  padding: 22px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary .plus{
+  font-family: var(--ff-mono); color: var(--blue); font-size: 1.2rem; flex-shrink:0; transition: transform 0.3s ease;
+}
+.faq-item[open] summary .plus{ transform: rotate(45deg); }
+.faq-item .faq-a{ padding: 0 4px 22px; color: var(--text-muted); font-size: 0.95rem; max-width: 620px; }
+
+/* ============ CTA FINAL ============ */
+.cta-final{
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(150deg, var(--surface), var(--bg-soft) 70%);
+  padding: 56px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px){ .cta-final{ padding: 80px 40px; } }
+.cta-final::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 500px 300px at 50% 0%, rgba(76,111,255,0.16), transparent 70%);
+}
+.cta-final h2{ font-size: clamp(1.7rem,4.4vw,2.6rem); line-height: 1.2; margin-bottom: 18px; position:relative; z-index:1; }
+.cta-final p{ color: var(--text-muted); max-width: 480px; margin: 0 auto 32px; position: relative; z-index:1; }
+.cta-final .hero-actions{ justify-content: center; position: relative; z-index:1; }
+
+/* ============ CONTATO / FOOTER ============ */
+.contato{ padding-top: 0; }
+.contato-grid{ display: grid; gap: 40px; }
+@media (min-width: 900px){ .contato-grid{ grid-template-columns: 1fr 1fr; gap: 60px; } }
+.field{ margin-bottom: 18px; }
+.field label{ display:block; font-size: 0.82rem; color: var(--text-faint); margin-bottom: 8px; font-family: var(--ff-mono); letter-spacing: 0.03em; }
+.field input, .field select, .field textarea{
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ outline: none; border-color: var(--blue); }
+.field textarea{ resize: vertical; min-height: 110px; }
+.contact-info{ display:flex; flex-direction:column; gap: 22px; }
+.contact-info h3{ font-size: 1.3rem; margin-bottom: 8px; }
+.contact-info p{ color: var(--text-muted); font-size: 0.95rem; max-width: 420px; }
+.contact-link{
+  display:flex; align-items:center; gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  transition: border-color .25s ease, background .25s ease;
+}
+.contact-link:hover{ border-color: var(--border-strong); background: rgba(255,255,255,0.03); }
+
+footer{
+  border-top: 1px solid var(--border);
+  padding: 36px 0;
+  margin-top: 40px;
+}
+.footer-row{ display:flex; flex-direction: column; gap: 14px; align-items: flex-start; justify-content: space-between; font-size: 0.85rem; color: var(--text-faint); }
+@media (min-width: 700px){ .footer-row{ flex-direction: row; align-items:center; } }
+.footer-row a{ color: var(--text-muted); }
+.footer-row a:hover{ color: var(--text); }
+
+</style>
 </head>
 <body>
 
-<div class="glow glow-a"></div>
-<div class="glow glow-b"></div>
-
-<!-- ===== NAV ===== -->
-<header class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <a href="#topo" class="logo">Cássia Cruz</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#projetos">Projetos</a>
-      <a href="#processo">Como funciona</a>
-      <a href="#faq">Dúvidas</a>
-      <a href="#contato" class="btn btn-primary btn-sm">Solicitar orçamento</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
+<header>
+  <div class="wrap nav">
+    <a href="#hero" class="logo">Cássia<span>.</span>Cruz</a>
+    <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero" id="topo">
-  <div class="wrap hero-grid">
-    <div class="hero-copy" data-animate>
-      <h1>O próximo cliente pode estar pesquisando pela sua empresa neste exato momento. O que ele encontra?</h1>
-      <p class="hero-text">Se a resposta for um site desatualizado, uma página feita às pressas ou nenhuma presença online, ele provavelmente já seguiu para o concorrente sem avisar. Eu desenvolvo sites que fazem esse cliente decidir ficar.</p>
-      <div class="hero-actions">
-        <a href="#contato" class="btn btn-primary btn-lg">Solicitar orçamento</a>
-        <a href="#projetos" class="btn btn-ghost btn-lg">Ver projetos</a>
-      </div>
-    </div>
+<main>
 
-    <div class="hero-visual" data-animate>
-      <div class="glass-panel">
-        <div class="glass-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        </div>
-        <div class="glass-preview">
-          <span class="glass-brand">TURBO DETAILS</span>
-          <span class="glass-sub">turbo-details.vercel.app</span>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Desenvolvimento web &amp; presença digital</p>
+        <h1>O próximo cliente da sua empresa pode estar pesquisando por ela agora.</h1>
+        <p class="hero-sub">O que ele encontra decide se essa pessoa entra em contato com você ou segue para o concorrente.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+          <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ===== PROBLEMA ===== -->
-<section class="problema" id="problema" data-animate>
-  <div class="wrap narrow">
-    <p class="eyebrow">O problema</p>
-    <h2>A primeira impressão já foi formada antes do primeiro contato</h2>
-    <p class="lead">Antes de ligar, antes de visitar, antes de perguntar o preço, seu cliente já formou uma opinião sobre a sua empresa. Ele fez isso sozinho, em segundos, olhando para o que encontrou online. Se essa impressão não transmitiu confiança, ele simplesmente não voltou para contar o motivo. Foi para o concorrente ao lado.</p>
-  </div>
-</section>
-
-<!-- ===== POR QUE IMPORTA ===== -->
-<section class="importancia" id="importancia" data-animate>
-  <div class="wrap">
-    <p class="eyebrow">Por que isso importa</p>
-    <h2>Presença digital não é sobre estar online. É sobre como sua empresa é percebida antes mesmo de ser conhecida.</h2>
-    <p class="lead">Um site bem construído não vende sozinho, mas remove todas as dúvidas que impedem alguém de confiar em você. Ele organiza a forma como sua empresa se apresenta, destaca o que faz de melhor e cria a base para que cada novo contato comece de um patamar mais alto.</p>
-
-    <div class="value-grid">
-      <div class="value-card">
-        <span class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Confiança</h3>
-        <p>Um site profissional comunica, antes de qualquer palavra, que sua empresa leva o próprio negócio a sério.</p>
-      </div>
-      <div class="value-card">
-        <span class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg>
-        </span>
-        <h3>Clareza</h3>
-        <p>Quando a informação certa está no lugar certo, o cliente entende rápido o que você oferece e por que escolher você.</p>
-      </div>
-      <div class="value-card">
-        <span class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6M12 16v6M4.2 4.2l4.2 4.2M15.6 15.6l4.2 4.2M2 12h6M16 12h6M4.2 19.8l4.2-4.2M15.6 8.4l4.2-4.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Diferenciação</h3>
-        <p>Em meio a concorrentes parecidos, a forma como você se apresenta online passa a ser o motivo da escolha.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MÉTODO ===== -->
-<section class="metodo" id="metodo" data-animate>
-  <div class="wrap narrow">
-    <p class="eyebrow">Como posso ajudar</p>
-    <h2>Estratégia, design e tecnologia trabalhando pela mesma coisa: a confiança do seu cliente</h2>
-    <p class="lead">Antes de qualquer linha de código, procuro entender como o seu negócio funciona, o que te diferencia e o que faz alguém escolher você em vez do concorrente. Só então a estrutura, o visual e o conteúdo do site são desenhados em volta dessas respostas. O resultado é um site que representa sua empresa da forma como ela merece ser vista, não um modelo genérico adaptado às pressas.</p>
-  </div>
-</section>
-
-<!-- ===== PROJETOS ===== -->
-<section class="projetos" id="projetos" data-animate>
-  <div class="wrap">
-    <p class="eyebrow">Projetos</p>
-    <h2>Empresas reais, com sites que representam o que elas são</h2>
-
-    <div class="case-list">
-
-      <article class="case-row">
-        <div class="case-visual case-turbo">
-          <div class="glass-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="case-preview">
-            <span class="case-brand">TURBO DETAILS</span>
-            <span class="case-sub">● aberto agora</span>
+      <div class="hero-visual">
+        <div class="search-mock" aria-hidden="true">
+          <div class="search-chrome">
+            <span class="search-dot"></span><span class="search-dot"></span><span class="search-dot"></span>
+          </div>
+          <div class="search-bar">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+            <span id="typeTarget"></span><span class="search-cursor"></span>
+          </div>
+          <div class="search-result" id="searchResult">
+            Sua empresa aparece assim para <strong>quem está procurando exatamente por ela?</strong>
           </div>
         </div>
-        <div class="case-info">
-          <span class="case-tag">Estética automotiva</span>
-          <h3>Turbo Details</h3>
-          <p>Uma landing page que acompanha o funcionamento real do negócio, com status de aberto e fechado em tempo real, resultados de trabalhos anteriores e agendamento integrado. O visitante entende o padrão do serviço antes mesmo de entrar em contato.</p>
-          <a href="https://turbo-details.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost">Ver site ↗</a>
-        </div>
-      </article>
 
-      <article class="case-row reverse">
-        <div class="case-visual case-clio">
-          <div class="glass-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="case-preview">
-            <span class="case-brand">Clio Personalizados</span>
-            <span class="case-sub">catálogo digital</span>
+        <div class="portrait-card">
+          <div class="portrait-avatar">CC</div>
+          <div>
+            <div class="name">Cássia Cruz</div>
+            <div class="role">Desenvolvimento &amp; estratégia digital</div>
           </div>
         </div>
-        <div class="case-info">
-          <span class="case-tag">Papelaria personalizada</span>
-          <h3>Clio Personalizados</h3>
-          <p>Um catálogo organizado por categoria, com depoimentos reais de clientes e um caminho direto até a compra pelo WhatsApp. Menos fricção entre encontrar o produto e fechar o pedido.</p>
-          <a href="https://site-teste-clio.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost">Ver site ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="section-pad" id="problema">
+    <div class="wrap">
+      <div class="problema-box reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>Muitas empresas sérias ainda parecem amadoras on-line.</h2>
+        <p>Um visitante forma uma opinião sobre uma empresa em segundos, antes mesmo de ler o que ela faz. Se o site parece antigo, confuso ou feito às pressas, a dúvida aparece antes da primeira mensagem ser enviada. E, na maioria das vezes, essa dúvida custa um contato que nunca chega a acontecer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANCIA -->
+  <section class="section-pad" id="importancia">
+    <div class="wrap importancia">
+      <div class="reveal">
+        <p class="eyebrow">Por que isso importa</p>
+        <h2>A confiança se constrói <span class="grad-text">antes</span> do primeiro contato.</h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">Antes de ligar, mandar mensagem ou visitar um endereço, a pessoa já formou uma percepção sobre a empresa a partir do que viu on-line. Uma presença digital bem construída não substitui a qualidade de um negócio. Ela mostra essa qualidade com a clareza que o negócio merece, reduzindo a distância entre encontrar a empresa e decidir confiar nela.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS -->
+  <section class="section-pad" id="servicos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como posso ajudar</p>
+        <h2>Cada página resolve um problema específico do negócio.</h2>
+        <p>Não se trata de escolher entre modelos prontos. Se trata de construir a experiência certa para o momento da sua empresa.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <span class="num">01</span>
+          <h3>Primeira impressão</h3>
+          <p>Uma página pensada para transmitir profissionalismo e seriedade já no primeiro segundo de visita.</p>
         </div>
-      </article>
-
+        <div class="card reveal">
+          <span class="num">02</span>
+          <h3>Clareza imediata</h3>
+          <p>O visitante entende o que a empresa faz, como ela pode ajudar e como entrar em contato, sem esforço.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">03</span>
+          <h3>Identidade alinhada ao negócio</h3>
+          <p>Um visual que representa o padrão real da empresa, em vez de um modelo genérico repetido em qualquer site.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">04</span>
+          <h3>Evolução contínua</h3>
+          <p>Ajustes e melhorias conforme a empresa cresce, sem depender de recomeçar o projeto do zero.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== PROCESSO ===== -->
-<section class="processo" id="processo" data-animate>
-  <div class="wrap">
-    <p class="eyebrow">Como funciona o processo</p>
-    <h2>Do primeiro contato ao site no ar</h2>
+  <!-- PROJETOS -->
+  <section class="section-pad" id="projetos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Projetos</p>
+        <h2>Cada projeto é pensado para o negócio que representa.</h2>
+      </div>
 
-    <ol class="steps">
-      <li class="step">
-        <span class="step-num">01</span>
-        <h3>Diagnóstico</h3>
-        <p>Entendo o seu negócio, seu público e o que o site precisa fazer por você antes de desenhar qualquer tela.</p>
-      </li>
-      <li class="step">
-        <span class="step-num">02</span>
-        <h3>Direção</h3>
-        <p>Defino a identidade visual e a estrutura da página com a cara da sua empresa, não um modelo pronto.</p>
-      </li>
-      <li class="step">
-        <span class="step-num">03</span>
-        <h3>Construção</h3>
-        <p>Desenvolvo o site com atenção a cada detalhe, testado em diferentes telas antes de qualquer entrega.</p>
-      </li>
-      <li class="step">
-        <span class="step-num">04</span>
-        <h3>Lançamento</h3>
-        <p>O site vai ao ar, e sigo por perto para ajustes, dúvidas e evolução conforme sua empresa cresce.</p>
-      </li>
-    </ol>
-  </div>
-</section>
+      <div class="project reveal">
+        <div class="project-frame" aria-hidden="true">
+          <span class="search-dot"></span><span class="search-dot"></span><span class="search-dot"></span>
+        </div>
+        <div class="project-mock" aria-hidden="true">
+          <span class="tag">Clínica odontológica</span>
+          <div class="title">Clínica Vitta</div>
+          <div class="bar"></div>
+          <div class="bar short"></div>
+        </div>
+        <div class="project-body">
+          <h3>Clínica Vitta</h3>
+          <p>Um site desatualizado foi substituído por uma experiência que transmite cuidado e confiança já na primeira tela, facilitando o agendamento de consultas.</p>
+        </div>
+      </div>
 
-<!-- ===== SOBRE ===== -->
-<section class="sobre" id="sobre" data-animate>
-  <div class="wrap narrow">
-    <p class="eyebrow">Sobre</p>
-    <h2>Antes de programar, eu escuto</h2>
-    <p class="lead">Vim do marketing antes de vir da programação, e isso muda a forma como enxergo um site. Para mim, cada página é uma decisão de negócio antes de ser uma decisão técnica. Sei como é estar do outro lado do balcão: minha própria empresa de estética automotiva, a Turbo Details, também nasceu de um site que precisava transmitir confiança para quem nunca tinha ouvido falar dela. É esse mesmo cuidado que aplico em cada projeto que assino.</p>
-  </div>
-</section>
+      <div class="project reveal">
+        <div class="project-frame" aria-hidden="true">
+          <span class="search-dot"></span><span class="search-dot"></span><span class="search-dot"></span>
+        </div>
+        <div class="project-mock" aria-hidden="true">
+          <span class="tag">Oficina mecânica</span>
+          <div class="title">Bahia Motors</div>
+          <div class="bar"></div>
+          <div class="bar short"></div>
+        </div>
+        <div class="project-body">
+          <h3>Bahia Motors</h3>
+          <p>Presença digital construída para facilitar o contato e melhorar a percepção sobre a qualidade do atendimento antes mesmo da primeira visita à oficina.</p>
+        </div>
+      </div>
 
-<!-- ===== FAQ ===== -->
-<section class="faq" id="faq" data-animate>
-  <div class="wrap narrow">
-    <p class="eyebrow">Dúvidas frequentes</p>
-    <h2>Antes de me chamar, você já deve estar pensando nisso</h2>
+      <div class="project reveal">
+        <div class="project-frame" aria-hidden="true">
+          <span class="search-dot"></span><span class="search-dot"></span><span class="search-dot"></span>
+        </div>
+        <div class="project-mock" aria-hidden="true">
+          <span class="tag">Studio de estética</span>
+          <div class="title">Studio Alma</div>
+          <div class="bar"></div>
+          <div class="bar short"></div>
+        </div>
+        <div class="project-body">
+          <h3>Studio Alma</h3>
+          <p>Página desenvolvida para valorizar o trabalho da equipe e transformar visitas vindas das redes sociais em agendamentos reais.</p>
+        </div>
+      </div>
 
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>Quanto custa um site?</summary>
-        <p>O investimento varia conforme o tipo de projeto e as funcionalidades necessárias. Me chame no WhatsApp e conversamos sobre o seu caso para te passar uma proposta justa.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Quanto tempo leva para ficar pronto?</summary>
-        <p>Depende da complexidade, mas a maioria dos projetos fica pronta em poucas semanas. No diagnóstico inicial já te dou um prazo realista para o seu caso.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Preciso já ter uma ideia pronta de como quero o site?</summary>
-        <p>Não. Parte do meu trabalho é justamente ajudar a organizar essa ideia. Trago direção mesmo quando o ponto de partida é apenas "preciso de um site".</p>
-      </details>
-      <details class="faq-item">
-        <summary>O site funciona bem no celular?</summary>
-        <p>Sim. Todo projeto é pensado primeiro para celular, já que é de onde vem a maior parte dos seus futuros clientes, e depois adaptado para computador.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Depois de pronto, dá para fazer alterações?</summary>
-        <p>Sim. Sigo disponível após a entrega para ajustes, atualizações de conteúdo e melhorias conforme sua empresa for crescendo.</p>
-      </details>
+      <p class="project-note">Projetos conceituais desenvolvidos para representar diferentes segmentos de atuação.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== CTA FINAL ===== -->
-<section class="contato" id="contato" data-animate>
-  <div class="wrap contato-inner">
-    <h2>Seu próximo cliente já está procurando. A pergunta é o que ele vai encontrar.</h2>
-    <p class="lead">Me chame no WhatsApp e conta um pouco sobre a sua empresa. Em poucos minutos já conseguimos entender se faz sentido trabalharmos juntas.</p>
-    <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Solicitar orçamento</a>
-  </div>
-</section>
+  <!-- PROCESSO -->
+  <section class="section-pad" id="processo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como funciona o processo</p>
+        <h2>Um caminho claro, do início ao lançamento.</h2>
+      </div>
+      <div class="timeline">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <div><h3>Conversa inicial</h3><p>Entendimento do negócio, do público e do que a empresa precisa transmitir.</p></div>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">02</span>
+          <div><h3>Estratégia</h3><p>Definição da estrutura, da mensagem e das prioridades da página.</p></div>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">03</span>
+          <div><h3>Design &amp; desenvolvimento</h3><p>Construção da experiência visual e técnica, com atenção a cada detalhe.</p></div>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">04</span>
+          <div><h3>Lançamento &amp; ajustes</h3><p>Publicação, testes reais e refinamentos finais antes da entrega.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <span>Cássia Cruz © 2026</span>
-    <a href="https://github.com/cassiacruz-r" target="_blank" rel="noopener">GitHub</a>
+  <!-- SOBRE -->
+  <section class="section-pad" id="sobre">
+    <div class="wrap sobre">
+      <div class="sobre-portrait reveal" aria-hidden="true">
+        <span class="initials">CC</span>
+        <span class="cap">cassiacruz.dev</span>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Sobre</p>
+        <h2>Antes do código, o entendimento do negócio.</h2>
+        <p>Cada empresa se comunica de um jeito diferente com seus clientes. Antes de desenvolver qualquer página, entendo como o negócio funciona, o que ele precisa transmitir e o que faz um visitante decidir confiar nele.</p>
+        <p>Essa forma de olhar para cada projeto vem de uma vivência anterior com marketing, hoje unida ao desenvolvimento de tecnologia. O resultado é uma presença digital pensada para representar a empresa da forma como ela merece ser vista.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-pad" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Dúvidas comuns antes de começar.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Quanto tempo leva para o site ficar pronto? <span class="plus">+</span></summary>
+          <div class="faq-a">O prazo depende do escopo do projeto. Depois da conversa inicial, é possível definir um prazo realista com base no que a empresa precisa.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso enviar textos e imagens prontos? <span class="plus">+</span></summary>
+          <div class="faq-a">Não necessariamente. Posso ajudar a organizar o conteúdo e sugerir a melhor forma de apresentar a empresa.</div>
+        </details>
+        <details class="faq-item">
+          <summary>O site funciona bem no celular? <span class="plus">+</span></summary>
+          <div class="faq-a">Sim. Todo projeto é desenvolvido pensando primeiro na experiência mobile, já que é por onde a maioria dos visitantes chega.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Vou conseguir atualizar o site sozinho depois? <span class="plus">+</span></summary>
+          <div class="faq-a">Depende do tipo de projeto. Isso é definido junto com a empresa, de acordo com o nível de autonomia desejado.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Como funciona o orçamento? <span class="plus">+</span></summary>
+          <div class="faq-a">Depois de entender a necessidade da empresa em uma conversa inicial, um valor é apresentado de acordo com o escopo definido.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section-pad" id="cta">
+    <div class="wrap">
+      <div class="cta-final reveal">
+        <h2>Sua empresa merece ser vista com a seriedade que ela tem.</h2>
+        <p>Vamos conversar sobre como transformar a presença digital da sua empresa em algo à altura do trabalho que ela já faz.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section-pad contato" id="contato">
+    <div class="wrap contato-grid">
+      <div class="reveal">
+        <p class="eyebrow">Vamos conversar</p>
+        <h2 style="font-size:clamp(1.5rem,3.6vw,2rem); margin-bottom:20px;">Conte um pouco sobre a sua empresa.</h2>
+        <form id="contactForm">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required>
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" type="text">
+          </div>
+          <div class="field">
+            <label for="segmento">Segmento</label>
+            <select id="segmento" name="segmento">
+              <option>Restaurante</option>
+              <option>Clínica</option>
+              <option>Escritório</option>
+              <option>Loja</option>
+              <option>Oficina</option>
+              <option>Estética</option>
+              <option>Prestador de serviço</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre o que sua empresa precisa."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Enviar solicitação</button>
+        </form>
+      </div>
+
+      <div class="contact-info reveal">
+        <div>
+          <h3>Prefere falar direto?</h3>
+          <p>Escolha o canal mais confortável. A resposta costuma ser rápida.</p>
+        </div>
+        <a class="contact-link" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-4-1L3 20l1.1-5.4A8.4 8.4 0 0 1 3.5 11 8.5 8.5 0 0 1 12 2.5a8.5 8.5 0 0 1 9 9Z"/></svg>
+          WhatsApp — (00) 00000-0000
+        </a>
+        <a class="contact-link" href="mailto:contato@cassiacruz.dev">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          contato@cassiacruz.dev
+        </a>
+        <a class="contact-link" href="#" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          Instagram — @cassiacruz.dev
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Cássia Cruz. Desenvolvimento &amp; presença digital.</span>
+    <a href="#hero">Voltar ao topo</a>
   </div>
 </footer>
 
-<a href="https://wa.me/55SEUNUMEROAQUI" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.28-1.38a9.9 9.9 0 0 0 4.7 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.03h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.13.82.84-3.05-.2-.31a8.1 8.1 0 0 1-1.24-4.36c0-4.49 3.65-8.14 8.15-8.14 2.17 0 4.22.85 5.76 2.39a8.08 8.08 0 0 1 2.38 5.76c0 4.49-3.65 8.14-8.12 8.14Zm4.47-6.1c-.24-.12-1.44-.71-1.67-.8-.22-.08-.38-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34 1 2.5.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
-</a>
+<script>
+// ---- typing animation (hero signature element) ----
+(function(){
+  var target = document.getElementById('typeTarget');
+  var result = document.getElementById('searchResult');
+  var queries = [
+    'clínica odontológica perto de mim',
+    'advogado trabalhista bahia',
+    'oficina mecânica 24 horas',
+    'restaurante japonês no centro',
+    'salão de estética premium'
+  ];
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-<script src="js/main.js"></script>
+  if(reduced){
+    target.textContent = queries[0];
+    result.classList.add('show');
+    return;
+  }
+
+  var qi = 0, ci = 0, deleting = false;
+
+  function tick(){
+    var q = queries[qi];
+    if(!deleting){
+      ci++;
+      target.textContent = q.slice(0, ci);
+      if(ci === q.length){
+        result.classList.add('show');
+        setTimeout(function(){ deleting = true; tick(); }, 1400);
+        return;
+      }
+      setTimeout(tick, 55);
+    } else {
+      result.classList.remove('show');
+      ci--;
+      target.textContent = q.slice(0, ci);
+      if(ci === 0){
+        deleting = false;
+        qi = (qi + 1) % queries.length;
+        setTimeout(tick, 400);
+        return;
+      }
+      setTimeout(tick, 28);
+    }
+  }
+  tick();
+})();
+
+// ---- scroll reveal ----
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+// ---- contact form (mailto fallback, no backend) ----
+(function(){
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = form.nome.value;
+    var empresa = form.empresa.value;
+    var segmento = form.segmento.value;
+    var mensagem = form.mensagem.value;
+    var body = 'Nome: ' + nome + '%0D%0AEmpresa: ' + empresa + '%0D%0ASegmento: ' + segmento + '%0D%0A%0D%0A' + encodeURIComponent(mensagem);
+    window.location.href = 'mailto:contato@cassiacruz.dev?subject=' + encodeURIComponent('Orçamento — ' + (empresa || nome)) + '&body=' + body;
+  });
+})();
+</script>
+
 </body>
 </html>
